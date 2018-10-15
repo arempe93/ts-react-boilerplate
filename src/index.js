@@ -1,6 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+import App from '@/App'
+
 const root = document.querySelector('#root')
 
 if (!root) {
@@ -8,6 +10,6 @@ if (!root) {
 }
 
 render(
-  <div>Hello, world!</div>,
+  <App />,
   root
 )
