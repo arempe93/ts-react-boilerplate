@@ -33,6 +33,7 @@
   "rules": {
     "comma-dangle": ["error", "never"],
     "func-names": 0,
+    "import/no-dynamic-require": 0,
     "import/prefer-default-export": 0,
     "jsx-quotes": ["error", "prefer-single"],
     "no-confusing-arrow": 0,

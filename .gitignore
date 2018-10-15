@@ -9,6 +9,7 @@ __benchmarks__
 build/
 remote-repo/
 coverage/
+dist/
 .module-cache
 fixtures/dom/public/react-dom.js
 fixtures/dom/public/react.js

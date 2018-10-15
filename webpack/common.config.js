@@ -1,7 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { resolve } = require('path')
+const merge = require('webpack-merge')
 
-module.exports = {
+const env = process.env.NODE_ENV || 'development'
+const envConfig = require(`./${env}.config.js`)
+
+const common = {
   module: {
     rules: [
       {
@@ -12,17 +16,6 @@ module.exports = {
     ]
   },
 
-  output: {
-    filename: '[name].bundle.js'
-  },
-
-  devServer: {
-    historyApiFallback: true,
-    port: 3000
-  },
-
-  devtool: 'cheap-module-eval-source-map',
-
   plugins: [
     new HtmlWebpackPlugin({
       inject: 'body',
@@ -30,3 +23,5 @@ module.exports = {
     })
   ]
 }
+
+module.exports = merge(envConfig, common)
