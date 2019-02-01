@@ -12,7 +12,14 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     disableHostCheck: true,
-    port: 3000
+    port: 3000,
+    hot: true
+  },
+
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
   },
 
   devtool: 'cheap-module-eval-source-map',
@@ -25,7 +32,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: '[development] - React Boilerplate'
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new DuplicatePackageCheckerPlugin({ verbose: true })
