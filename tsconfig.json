@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "jsx": "react",
+		"target": "esnext",
+		"moduleResolution": "node",
+		"allowJs": true,
+		"noEmit": true,
+		"strict": true,
+    "isolatedModules": true,
+    "allowSyntheticDefaultImports": true,
+		"esModuleInterop": true
+	},
+	"include": [
+		"src"
+	]
+}

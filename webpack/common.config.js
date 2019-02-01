@@ -6,10 +6,14 @@ const env = process.env.NODE_ENV || 'development'
 const envConfig = require(`./${env}.config.js`)
 
 const common = {
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx']
+  },
+
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /(\.ts|\.tsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       }
