@@ -2,15 +2,12 @@ module.exports = function (api) {
   api.cache(true)
   const presets = [
     ['@babel/react'],
-    ['@babel/env', { modules: false }],
-    ['@babel/flow']
+    ['@babel/env', { modules: false }]
   ]
 
   const plugins = [
     ['react-hot-loader/babel'],
     ['@babel/plugin-proposal-class-properties', { loose: false }],
-    ['@babel/plugin-transform-flow-strip-types'],
-    ['babel-plugin-flow-react-proptypes'],
     ['module-resolver', {
       root: ['.'],
       alias: { '@': './src' }

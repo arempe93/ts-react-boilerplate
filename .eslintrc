@@ -14,7 +14,6 @@
     "airbnb",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:flowtype/recommended"
   ],
   "globals": {
     "context": true
@@ -23,9 +22,6 @@
     "jest"
   ],
   "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": true
-    },
     "import/resolver": {
       "babel-module": {}
     }
