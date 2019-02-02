@@ -1,18 +1,19 @@
 {
-  "name": "react-boilerplate",
+  "name": "ts-react-boilerplate",
   "version": "0.1.0",
-  "description": "A simple React boilerplate",
-  "main": "index.js",
-  "author": "Chris Burbank",
+  "description": "A simple Typescript + React boilerplate",
+  "main": "index.tsx",
+  "author": "Andrew Rempe, Chris Burbank",
   "license": "MIT",
   "private": false,
   "scripts": {
     "build": "rimraf dist && yarn webpack --progress --colors --display-error-details --config webpack/common.config.js",
     "build:production": "NODE_ENV=production yarn build",
-    "ci": "yarn lint && yarn flow check",
-    "lint": "tslint src",
+    "ci": "yarn lint && yarn typecheck",
+    "lint": "tslint 'src/**/*.{ts,tsx}'",
     "start": "webpack-dev-server --mode development --hot --open --config webpack/common.config.js",
-    "test": "jest"
+    "test": "jest",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@babel/polyfill": "7.0.0",
