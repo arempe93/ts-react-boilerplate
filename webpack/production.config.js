@@ -43,17 +43,6 @@ module.exports = {
     new webpack.HashedModuleIdsPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new CompressionPlugin(),
-    new OfflinePlugin({
-      excludes: ['**/*.map'],
-      publicPath: '/',
-      updateStrategy: 'changed',
-      autoUpdate: 1000 * 60 * 2,
-      externals: ['/'],
-      ServiceWorker: {
-        events: true,
-        navigateFallbackURL: '/'
-      }
-    }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       openAnalyzer: false
