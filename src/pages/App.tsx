@@ -5,16 +5,23 @@ import { ThemeProvider } from 'styled-components'
 
 import GlobalStyle from '@/components/GlobalStyle'
 
+import ModalRoot from '@/widgets/ModalRoot'
+
+import ModalProvider from '@/providers/ModalProvider'
+
 import theme from '@/theme'
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <article>
+    <ModalProvider>
       <GlobalStyle />
+      <ModalRoot />
       <Router>
-        <Route exact path='/' render={() => <p>Hello world!</p>} />
+        <Switch>
+          <Route exact path='/' render={() => <p>Hello world!</p>} />
+        </Switch>
       </Router>
-    </article>
+    </ModalProvider>
   </ThemeProvider>
 )
 
