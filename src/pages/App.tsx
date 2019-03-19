@@ -13,20 +13,24 @@ import SnackbarProvider from '@/providers/SnackbarProvider'
 
 import theme from '@/theme'
 
+import { StateProvider } from '@/state'
+
 const App = () => (
   <ThemeProvider theme={theme}>
-    <ModalProvider>
-      <SnackbarProvider>
-        <GlobalStyle />
-        <ModalRoot />
-        <SnackbarRoot />
-        <Router>
-          <Switch>
-            <Route exact path='/' render={() => <p>Hello world!</p>} />
-          </Switch>
-        </Router>
-      </SnackbarProvider>
-    </ModalProvider>
+    <StateProvider>
+      <ModalProvider>
+        <SnackbarProvider>
+          <GlobalStyle />
+          <ModalRoot />
+          <SnackbarRoot />
+          <Router>
+            <Switch>
+              <Route exact path='/' render={() => <p>Hello world!</p>} />
+            </Switch>
+          </Router>
+        </SnackbarProvider>
+      </ModalProvider>
+    </StateProvider>
   </ThemeProvider>
 )
 

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { StateConsumer } from '@/state'
+
 export const withConsumer = (Consumer, ...stateKeys) => (Component) => (props) => (
   <Consumer>
     {(state => {
@@ -12,4 +14,12 @@ export const withConsumer = (Consumer, ...stateKeys) => (Component) => (props) =
       )
     })}
   </Consumer>
+)
+
+export const withState = (consumerProps) => (Component) => props => (
+  <StateConsumer {...consumerProps}>
+    {(state) => (
+      <Component {...props} {...state} />
+    )}
+  </StateConsumer>
 )
