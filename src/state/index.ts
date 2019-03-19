@@ -1,12 +1,6 @@
-import modal from './modal'
-
 import createState from './createState'
 
-const initialState = {
-  modal
-}
-
-const { StateConsumer, StateProvider, mutate } = createState(initialState)
+const { StateConsumer, StateProvider, mutate } = createState()
 
 export { StateConsumer, StateProvider }
 

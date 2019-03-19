@@ -6,11 +6,11 @@ import styled from 'styled-components'
 import Icon from '@/components/Icon'
 import Text from '@/components/Text'
 
-import { SnackbarConsumer } from '@/providers/SnackbarProvider'
-
 import Portal from '@/widgets/Portal'
 
-import { withConsumer } from '@/util/provider'
+import { hide, selectSnackbar } from '@/state/snackbar'
+
+import { withState } from '@/util/provider'
 
 const ICONS = {
   success: 'check',
@@ -99,7 +99,7 @@ const Content = styled.div`
 `
 
 class SnackbarRoot extends Component {
-  private handleClickOut = () => this.props.visible && this.props.hide()
+  private handleClickOut = () => this.props.visible && hide()
 
   public render() {
     return (
@@ -137,4 +137,4 @@ class SnackbarRoot extends Component {
   }
 }
 
-export default withConsumer(SnackbarRoot, SnackbarConsumer)
+export default withState({ select: [selectSnackbar] })(SnackbarRoot)

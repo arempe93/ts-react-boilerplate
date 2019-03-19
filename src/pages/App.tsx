@@ -8,25 +8,22 @@ import GlobalStyle from '@/components/GlobalStyle'
 import ModalRoot from '@/widgets/ModalRoot'
 import SnackbarRoot from '@/widgets/SnackbarRoot'
 
-import SnackbarProvider from '@/providers/SnackbarProvider'
-
 import theme from '@/theme'
 
 import { StateProvider } from '@/state'
+import initialState from '@/state/initialState'
 
 const App = () => (
   <ThemeProvider theme={theme}>
-    <StateProvider>
-      <SnackbarProvider>
-        <GlobalStyle />
-        <ModalRoot />
-        <SnackbarRoot />
-        <Router>
-          <Switch>
-            <Route exact path='/' render={() => <p>Hello world!</p>} />
-          </Switch>
-        </Router>
-      </SnackbarProvider>
+    <StateProvider value={initialState}>
+      <GlobalStyle />
+      <ModalRoot />
+      <SnackbarRoot />
+      <Router>
+        <Switch>
+          <Route exact path='/' render={() => (<p>Hello world!</p>)} />
+        </Switch>
+      </Router>
     </StateProvider>
   </ThemeProvider>
 )

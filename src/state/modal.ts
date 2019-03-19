@@ -8,7 +8,7 @@ const initialState = {
 // Actions
 
 export const hide = () => mutate((state) => {
-  state.modal = initialState
+  state.modal = { ...initialState }
 })
 
 export const show = (component, props = {}) => mutate((state) => {
@@ -22,6 +22,6 @@ export const show = (component, props = {}) => mutate((state) => {
 
 const baseSelector = state => state.modal
 
-export const selectModal = baseSelector
+export const selectModal = state => baseSelector(state)
 
 export default initialState

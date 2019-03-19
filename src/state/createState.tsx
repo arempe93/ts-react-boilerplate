@@ -5,9 +5,9 @@ const naiveEqualityCheck = (prev, next) => prev === next
 
 const selectEverything = state => state
 
-const createState = (initialState, equalityCompare = naiveEqualityCheck) => {
+const createState = (equalityCompare = naiveEqualityCheck) => {
   let updateState = null
-  const { Provider, Consumer } = React.createContext(initialState)
+  const { Provider, Consumer } = React.createContext({})
 
   const mutate = (fn) => {
     if (updateState === null) {
@@ -18,7 +18,7 @@ const createState = (initialState, equalityCompare = naiveEqualityCheck) => {
   }
 
   class StateProvider extends Component {
-    state = initialState
+    state = this.props.value
 
     componentDidMount() {
       if (updateState !== null) {
