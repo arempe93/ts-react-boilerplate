@@ -2,21 +2,19 @@ import React from 'react'
 
 import Overlay from '@/widgets/Overlay'
 
-import { ModalConsumer } from '@/providers/ModalProvider'
+import { hide, selectModal } from '@/state/modal'
 
-const ModalRoot = () => (
-  <ModalConsumer>
-    {({ component: Component, props, hide }) => (
-      Component
-        ? <Overlay onClickOut={hide}>
-            {React.createElement(Component, {
-              ...props,
-              onRequestClose: hide
-            })}
-          </Overlay>
-        : null
-    )}
-  </ModalConsumer>
+import { withState } from '@/util/provider'
+
+const ModalRoot = ({ component: Component, props }) => (
+  Component
+    ? <Overlay onClickOut={hide}>
+        {React.createElement(Component, {
+          ...props,
+          onRequestClose: hide
+        })}
+      </Overlay>
+    : null
 )
 
-export default ModalRoot
+export default withState({ select: [selectModal] })(ModalRoot)

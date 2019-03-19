@@ -1,6 +1,10 @@
+import modal from './modal'
+
 import createState from './createState'
 
-const initialState = {}
+const initialState = {
+  modal
+}
 
 const { StateConsumer, StateProvider, mutate } = createState(initialState)
 

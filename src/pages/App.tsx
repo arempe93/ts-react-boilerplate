@@ -8,7 +8,6 @@ import GlobalStyle from '@/components/GlobalStyle'
 import ModalRoot from '@/widgets/ModalRoot'
 import SnackbarRoot from '@/widgets/SnackbarRoot'
 
-import ModalProvider from '@/providers/ModalProvider'
 import SnackbarProvider from '@/providers/SnackbarProvider'
 
 import theme from '@/theme'
@@ -18,18 +17,16 @@ import { StateProvider } from '@/state'
 const App = () => (
   <ThemeProvider theme={theme}>
     <StateProvider>
-      <ModalProvider>
-        <SnackbarProvider>
-          <GlobalStyle />
-          <ModalRoot />
-          <SnackbarRoot />
-          <Router>
-            <Switch>
-              <Route exact path='/' render={() => <p>Hello world!</p>} />
-            </Switch>
-          </Router>
-        </SnackbarProvider>
-      </ModalProvider>
+      <SnackbarProvider>
+        <GlobalStyle />
+        <ModalRoot />
+        <SnackbarRoot />
+        <Router>
+          <Switch>
+            <Route exact path='/' render={() => <p>Hello world!</p>} />
+          </Switch>
+        </Router>
+      </SnackbarProvider>
     </StateProvider>
   </ThemeProvider>
 )

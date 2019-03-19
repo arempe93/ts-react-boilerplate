@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode } from 'react'
 
-import { ModalConsumer } from '@/providers/ModalProvider'
+import { show } from '@/state/modal'
 
 interface IProps {
   children: ReactNode
@@ -9,13 +9,9 @@ interface IProps {
 }
 
 const ModalOpener = ({ children, component, props = {} }: IProps) => (
-  <ModalConsumer>
-    {({ show }) => (
-      React.cloneElement(children, {
-        onClick: () => show(component, props)
-      })
-    )}
-  </ModalConsumer>
+  React.cloneElement(children, {
+    onClick: () => show(component, props)
+  })
 )
 
 export default ModalOpener
